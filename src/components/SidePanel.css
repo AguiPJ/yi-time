@@ -107,7 +107,13 @@
 .side-gua__line-tag {
   font-size: 0.55rem;
   color: #c9a84c;
-  width: 14px;
+  width: 16px;
+  text-align: center;
+  visibility: hidden;
+}
+
+.side-gua__line-tag--visible {
+  visibility: visible;
 }
 
 /* --- 体用解读 --- */

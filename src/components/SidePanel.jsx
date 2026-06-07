@@ -122,7 +122,7 @@ function GuaBlock({ type, label, gua, dongYaoIndex, showTiYong }) {
                 size="sm"
                 color={i < 3 ? gua.lowerColor : gua.upperColor}
               />
-              {isDong && <span className="side-gua__line-tag">动</span>}
+              <span className={`side-gua__line-tag${isDong ? ' side-gua__line-tag--visible' : ''}`}>动</span>
             </div>
           );
         })}
