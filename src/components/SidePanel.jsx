@@ -1,38 +1,111 @@
+import YaoLine from './YaoLine';
 import './SidePanel.css';
 
 /**
- * SidePanel — 右侧收集面板
- * 每次点击 ActiveHexagram 捕获本卦→互卦→变卦三卦
+ * SidePanel — 右侧捕获展示面板
+ * 点击后显示当前时间的三卦：本卦(现状) → 互卦(过程) → 变卦(结果)
+ * 每卦完整展示6爻 + 解读文字预留区
+ *
+ * Props:
+ *   captured: { timeLabel, benGua, huGua, bianGua } | null
  */
-export default function SidePanel({ entries }) {
+export default function SidePanel({ captured }) {
+  if (!captured) {
+    return (
+      <aside className="side-panel side-panel--empty">
+        <p className="side-panel__hint">点击上方卦象结果<br />捕获到此处</p>
+      </aside>
+    );
+  }
+
+  const { timeLabel, benGua, huGua, bianGua } = captured;
+
   return (
     <aside className="side-panel">
-      <h3 className="side-panel__title">卦象收集</h3>
-      {entries.length === 0 && (
-        <p className="side-panel__empty">点击上方卦象结果<br />捕获到此处</p>
-      )}
-      <div className="side-panel__list">
-        {entries.map((entry) => (
-          <div key={entry.id} className="side-entry">
-            <span className="side-entry__time">{entry.timeLabel}</span>
-            <div className="side-entry__guas">
-              <div className="side-entry__gua side-entry__gua--ben">
-                <span className="side-entry__tag">本</span>
-                <span className="side-entry__name">{entry.benGua.name}</span>
-              </div>
-              <span className="side-entry__arrow">→</span>
-              <div className="side-entry__gua side-entry__gua--hu">
-                <span className="side-entry__tag">互</span>
-                <span className="side-entry__name">{entry.huGua.name}</span>
-              </div>
-              <span className="side-entry__arrow">→</span>
-              <div className="side-entry__gua side-entry__gua--bian">
-                <span className="side-entry__tag">变</span>
-                <span className="side-entry__name">{entry.bianGua.name}</span>
-              </div>
-            </div>
+      <div className="side-panel__inner">
+        <span className="side-panel__time">{timeLabel}</span>
+
+        {/* 本卦 */}
+        <div className="side-gua side-gua--ben">
+          <h3 className="side-gua__title">
+            <span className="side-gua__dot side-gua__dot--ben" />
+            本卦 · 现状
+          </h3>
+          <span className="side-gua__name">{benGua.name}</span>
+          <div className="side-gua__lines">
+            {benGua.lines.map((type, i) => (
+              <YaoLine
+                key={i}
+                type={type}
+                size="sm"
+                color={i < 3 ? benGua.lowerColor : benGua.upperColor}
+              />
+            ))}
           </div>
-        ))}
+          <div className="side-gua__interpretation">
+            <textarea
+              className="side-gua__text"
+              placeholder="本卦解读…"
+              rows={2}
+            />
+          </div>
+        </div>
+
+        <span className="side-panel__arrow">↓</span>
+
+        {/* 互卦 */}
+        <div className="side-gua side-gua--hu">
+          <h3 className="side-gua__title">
+            <span className="side-gua__dot side-gua__dot--hu" />
+            互卦 · 过程
+          </h3>
+          <span className="side-gua__name">{huGua.name}</span>
+          <div className="side-gua__lines">
+            {huGua.lines.map((type, i) => (
+              <YaoLine
+                key={i}
+                type={type}
+                size="sm"
+                color={i < 3 ? huGua.lowerColor : huGua.upperColor}
+              />
+            ))}
+          </div>
+          <div className="side-gua__interpretation">
+            <textarea
+              className="side-gua__text"
+              placeholder="互卦解读…"
+              rows={2}
+            />
+          </div>
+        </div>
+
+        <span className="side-panel__arrow">↓</span>
+
+        {/* 变卦 */}
+        <div className="side-gua side-gua--bian">
+          <h3 className="side-gua__title">
+            <span className="side-gua__dot side-gua__dot--bian" />
+            变卦 · 结果
+          </h3>
+          <span className="side-gua__name">{bianGua.name}</span>
+          <div className="side-gua__lines">
+            {bianGua.lines.map((type, i) => (
+              <YaoLine
+                key={i}
+                type={type}
+                size="sm"
+                color={i < 3 ? bianGua.lowerColor : bianGua.upperColor}
+              />
+            ))}
+          </div>
+          <div className="side-gua__interpretation">
+            <textarea
+              className="side-gua__text"
+              placeholder="变卦解读…"
+              rows={2}
+            />
+          </div>
+        </div>
       </div>
     </aside>
   );
