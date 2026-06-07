@@ -1,0 +1,28 @@
+/* ===== Layer 1: 两爻 ===== */
+
+.layer-1__items {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 30px 0;
+}
+
+.layer-1__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.layer-1__label {
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+}
+
+.layer-1__label--yang {
+  color: #c9a84c;
+}
+
+.layer-1__label--yin {
+  color: #888;
+}

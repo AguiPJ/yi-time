@@ -1,0 +1,72 @@
+/* ===== YaoLine 基础爻组件样式 ===== */
+
+.yao-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+/* --- 尺寸档位 --- */
+.yao-line--sm .yao-line__bar {
+  height: 6px;
+  border-radius: 3px;
+}
+.yao-line--sm.yao-line--yang .yao-line__bar--full {
+  width: 40px;
+}
+.yao-line--sm.yao-line--yin .yao-line__bar {
+  width: 16px;
+}
+.yao-line--sm.yao-line--yin {
+  gap: 8px;
+}
+
+.yao-line--md .yao-line__bar {
+  height: 10px;
+  border-radius: 5px;
+}
+.yao-line--md.yao-line--yang .yao-line__bar--full {
+  width: 60px;
+}
+.yao-line--md.yao-line--yin .yao-line__bar {
+  width: 24px;
+}
+.yao-line--md.yao-line--yin {
+  gap: 12px;
+}
+
+.yao-line--lg .yao-line__bar {
+  height: 14px;
+  border-radius: 7px;
+}
+.yao-line--lg.yao-line--yang .yao-line__bar--full {
+  width: 80px;
+}
+.yao-line--lg.yao-line--yin .yao-line__bar {
+  width: 32px;
+}
+.yao-line--lg.yao-line--yin {
+  gap: 16px;
+}
+
+/* --- 线条基础样式 --- */
+.yao-line__bar {
+  display: block;
+  background: var(--yao-color);
+  transition: background 0.3s;
+}
+
+.yao-line__bar--full {
+  width: 100%;
+}
+
+/* --- 渐变效果（Layer 2 下方爻使用）--- */
+.yao-line--gradient .yao-line__bar {
+  background: linear-gradient(
+    to bottom,
+    var(--yao-color) 0%,
+    var(--yao-color) 30%,
+    color-mix(in srgb, var(--yao-color) 40%, transparent) 100%
+  );
+}

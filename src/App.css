@@ -1,0 +1,94 @@
+/* ===== App 全局布局 ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #ddd;
+  --bg-secondary: #141414;
+  --text-primary: #e0e0e0;
+  --text-secondary: #888;
+  --divider-color: rgba(255, 255, 255, 0.06);
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family:
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== App 主体 ===== */
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+.app__header {
+  text-align: center;
+  padding: 20px 0 10px;
+}
+
+.app__title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: #c9a84c;
+  margin-bottom: 6px;
+}
+
+.app__subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.15em;
+}
+
+/* ===== Layer 通用 ===== */
+
+.layer {
+  padding: 30px 0;
+}
+
+.layer__title {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
+}
+
+/* ===== 分隔线 ===== */
+
+.layer-divider {
+  border: none;
+  border-top: 1px solid var(--divider-color);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== Footer ===== */
+
+.app__footer {
+  text-align: center;
+  padding: 40px 0 20px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
