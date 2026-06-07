@@ -1,4 +1,4 @@
-import { TRIGRAMS } from './trigrams';
+import { TRIGRAMS, findTrigramIndex } from './trigrams';
 
 // 六十四卦：上卦(行) × 下卦(列) = 8×8 = 64
 // 按 乾兑离震巽坎艮坤 排列，上卦为行，下卦为列

@@ -40,6 +40,7 @@ export default function App() {
       benGua: result.benGua,
       huGua: result.huGua,
       bianGua: result.bianGua,
+      dongYaoIndex: result.dongYaoIndex,
     });
   }, [result]);
 

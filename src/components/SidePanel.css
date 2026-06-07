@@ -4,7 +4,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  width: 240px;
+  width: 260px;
   height: 100vh;
   overflow-y: auto;
   padding: 16px 14px 32px;
@@ -27,18 +27,12 @@
 }
 
 .side-panel__inner {
-  animation: capture-in 0.5s ease-out;
+  animation: capture-in 0.45s ease-out;
 }
 
 @keyframes capture-in {
-  from {
-    opacity: 0;
-    transform: translateX(60px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
+  from { opacity: 0; transform: translateX(50px) scale(0.92); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
 }
 
 .side-panel__time {
@@ -59,84 +53,112 @@
   margin: 4px 0;
 }
 
-/* --- 单个卦卡片 --- */
+/* --- 卦卡片 --- */
 .side-gua {
-  padding: 10px;
+  padding: 10px 10px 8px;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.side-gua--ben { border-left: 2px solid #c9a84c; }
-.side-gua--hu  { border-left: 2px solid #6699cc; }
+.side-gua--ben  { border-left: 2px solid #c9a84c; }
+.side-gua--hu   { border-left: 2px solid #6699cc; }
 .side-gua--bian { border-left: 2px solid #cc6666; }
 
 .side-gua__title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.68rem;
-  font-weight: 400;
+  font-size: 0.7rem;
+  font-weight: 500;
   color: #aaa;
-  margin-bottom: 4px;
-}
-
-.side-gua__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-.side-gua__dot--ben  { background: #c9a84c; }
-.side-gua__dot--hu   { background: #6699cc; }
-.side-gua__dot--bian { background: #cc6666; }
-
-.side-gua__name {
-  display: block;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
   text-align: center;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
 }
 
-.side-gua--ben .side-gua__name  { color: #c9a84c; }
-.side-gua--hu .side-gua__name   { color: #6699cc; }
-.side-gua--bian .side-gua__name { color: #cc6666; }
-
+/* --- 爻行 --- */
 .side-gua__lines {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 8px;
+  gap: 0;
+  margin-bottom: 6px;
 }
 
-/* --- 解读文字区 --- */
-.side-gua__interpretation {
-  margin-top: 6px;
-}
-
-.side-gua__text {
+.side-gua__line-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   width: 100%;
-  padding: 6px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  justify-content: center;
+}
+
+.side-gua__line-num {
+  font-size: 0.55rem;
+  color: #555;
+  width: 12px;
+  text-align: right;
+}
+
+.side-gua__line-row--dong {
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: 3px;
+}
+
+.side-gua__line-tag {
+  font-size: 0.55rem;
+  color: #c9a84c;
+  width: 14px;
+}
+
+/* --- 体用解读 --- */
+.side-gua__tiyong {
+  margin-top: 8px;
+  padding: 8px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.03);
-  color: #999;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.side-gua__tiyong-line {
+  font-size: 0.62rem;
+  color: #aaa;
+  line-height: 1.6;
+  margin: 2px 0;
+}
+
+.side-gua__tiyong-tag {
+  display: inline-block;
+  font-size: 0.55rem;
+  padding: 0 4px;
+  border-radius: 2px;
+  margin-right: 4px;
+  font-weight: 600;
+}
+
+.side-gua__tiyong-tag--body {
+  background: rgba(102, 153, 204, 0.25);
+  color: #6699cc;
+}
+
+.side-gua__tiyong-tag--use {
+  background: rgba(204, 102, 102, 0.25);
+  color: #cc6666;
+}
+
+.side-gua__tiyong-result {
+  margin-top: 6px;
   font-size: 0.65rem;
-  font-family: inherit;
-  line-height: 1.5;
-  resize: vertical;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.side-gua__text:focus {
-  border-color: rgba(255, 255, 255, 0.2);
   color: #ccc;
+  font-weight: 500;
 }
 
-.side-gua__text::placeholder {
-  color: #444;
+.side-gua__tiyong-status {
+  margin-left: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
 }
+
+.side-gua__tiyong-status--good   { color: #4a9; }
+.side-gua__tiyong-status--bad    { color: #c55; }
+.side-gua__tiyong-status--drain  { color: #ca5; }
+.side-gua__tiyong-status--neutral{ color: #888; }

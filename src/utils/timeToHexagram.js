@@ -1,4 +1,4 @@
-import { TRIGRAMS } from '../data/trigrams';
+import { TRIGRAMS, findTrigramIndex } from '../data/trigrams';
 import { HEXAGRAMS } from '../data/hexagrams';
 
 /**
@@ -78,20 +78,6 @@ export function timeToHexagram(date) {
       col: huLower,
     },
   };
-}
-
-/**
- * 根据 3 爻数组查找八卦索引
- * @param {string[]} lines - 3 个 'yang'|'yin'
- * @returns {number} 0-7
- */
-function findTrigramIndex(lines) {
-  return TRIGRAMS.findIndex(
-    (t) =>
-      t.lines[0] === lines[0] &&
-      t.lines[1] === lines[1] &&
-      t.lines[2] === lines[2],
-  );
 }
 
 /**
