@@ -1,16 +1,62 @@
-# React + Vite
+# 卦象时间墙 · Yi-Time
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+基于 React 的卦象可视化时间墙，逐层展示从太极到六十四卦的演化。
 
-Currently, two official plugins are available:
+## 四层结构
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| 层级 | 名称 | 内容 | 爻数 |
+|------|------|------|------|
+| 第一层 | 两爻 | 阳（金色长线）、阴（黑色双短线） | 1 |
+| 第二层 | 四象 | 老阴、少阴、少阳、老阳（上方原色，下方渐变） | 2 |
+| 第三层 | 八卦 | 乾☰ 兑☱ 离☲ 震☳ 巽☴ 坎☵ 艮☶ 坤☷ | 3 |
+| 第四层 | 六十四卦 | 8×8 网格（上卦 × 下卦），每卦含名 | 6 |
 
-## React Compiler
+## 颜色体系
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| 元素 | 颜色 | 对应卦 |
+|------|------|--------|
+| 金 | #C9A84C / #D4AF37 | 乾、兑 |
+| 火 | #CC3333 | 离 |
+| 木 | #4A8C3F / #5DA04E | 震、巽 |
+| 水 | #2C5F8A | 坎 |
+| 土 | #C4953A / #B8863C | 艮、坤 |
 
-## Expanding the ESLint configuration
+## 技术栈
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **框架**: React 18（函数组件）
+- **构建**: Vite 5
+- **样式**: 纯 CSS，CSS 自定义属性
+- **语言**: JavaScript (JSX)
+
+## 开发
+
+```bash
+npm install
+npm run dev       # 启动开发服务器 → http://localhost:5173
+npm run build     # 生产构建
+npm run preview   # 预览生产构建
+```
+
+## 项目结构
+
+```
+src/
+├── main.jsx                    # 入口
+├── App.jsx                     # 主布局（四层垂直排列）
+├── App.css                     # 全局样式（深色主题）
+├── data/
+│   ├── trigrams.js             # 八卦 & 四象数据
+│   └── hexagrams.js            # 六十四卦数据（8×8 生成）
+└── components/
+    ├── YaoLine.jsx + .css      # 核心：阴阳爻组件
+    ├── Layer1Lines.jsx + .css  # 第一层：两爻
+    ├── Layer2FourImages.jsx + .css  # 第二层：四象
+    ├── Layer3EightTrigrams.jsx + .css # 第三层：八卦
+    └── Layer4SixtyFourHexagrams.jsx + .css # 第四层：六十四卦
+```
+
+## 设计理念
+
+> 易有太极，是生两仪，两仪生四象，四象生八卦
+
+页面从上到下逐层展开，从最基本的阴阳两爻，到两爻组合的四象，再到三爻组成的八卦，最终到六爻构成的六十四卦——完整呈现《易经》卦象体系的生成逻辑。
