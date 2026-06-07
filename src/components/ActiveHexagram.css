@@ -1,0 +1,118 @@
+.active-hex {
+  text-align: center;
+  padding: 16px 20px;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 10px;
+  background: rgba(201, 168, 76, 0.04);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.active-hex--empty {
+  border-color: rgba(255, 255, 255, 0.05);
+  background: transparent;
+}
+
+.active-hex__waiting {
+  color: #555;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+/* --- 时间显示 --- */
+.active-hex__time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.active-hex__timestamp {
+  font-size: 1rem;
+  color: #ccc;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.active-hex__badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(201, 168, 76, 0.2);
+  color: #c9a84c;
+  letter-spacing: 0.1em;
+}
+
+/* --- 卦象行 --- */
+.active-hex__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.active-hex__gua {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 80px;
+}
+
+.active-hex__gua-label {
+  font-size: 0.65rem;
+  color: #666;
+  letter-spacing: 0.1em;
+}
+
+.active-hex__gua-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.active-hex__gua--main .active-hex__gua-name {
+  color: #c9a84c;
+}
+
+.active-hex__gua--changed .active-hex__gua-name {
+  color: #cc6666;
+}
+
+.active-hex__gua--mutual .active-hex__gua-name {
+  color: #6699cc;
+}
+
+.active-hex__gua-trigram {
+  font-size: 0.75rem;
+  color: #777;
+  letter-spacing: 0.05em;
+}
+
+.active-hex__arrow {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* --- 动爻 --- */
+.active-hex__dongyao {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.active-hex__dongyao-label {
+  color: #888;
+}
+
+.active-hex__dongyao-value {
+  color: #c9a84c;
+  font-weight: 500;
+}
+
+.active-hex__dongyao-type {
+  color: #777;
+  font-weight: 400;
+  font-size: 0.8rem;
+}

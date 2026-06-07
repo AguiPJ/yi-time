@@ -22,6 +22,12 @@
   padding: 4px 2px 8px;
   font-size: 0.65rem;
   letter-spacing: 0.05em;
+  transition: color 0.5s, text-shadow 0.5s;
+}
+
+.hex-grid__col-label--active {
+  text-shadow: 0 0 8px currentColor;
+  font-weight: 700;
 }
 
 .hex-grid__col-symbol {
@@ -53,6 +59,12 @@
   padding: 4px 4px;
   font-size: 0.65rem;
   letter-spacing: 0.05em;
+  transition: color 0.5s, text-shadow 0.5s;
+}
+
+.hex-grid__row-label--active {
+  text-shadow: 0 0 8px currentColor;
+  font-weight: 700;
 }
 
 .hex-grid__row-symbol {
@@ -80,12 +92,32 @@
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.015);
-  transition: border-color 0.3s, background 0.3s;
+  transition: border-color 0.5s, background 0.5s, box-shadow 0.5s;
 }
 
 .hex-cell:hover {
   border-color: rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- 激活本卦 --- */
+.hex-cell--active {
+  border-color: rgba(201, 168, 76, 0.6) !important;
+  background: rgba(201, 168, 76, 0.08) !important;
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.15);
+}
+
+.hex-cell--pulse {
+  animation: hex-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes hex-pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(201, 168, 76, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(201, 168, 76, 0.35);
+  }
 }
 
 .hex-cell__lines {
@@ -95,9 +127,35 @@
   gap: 0;
 }
 
+/* --- 动爻动画 --- */
+.hex-cell__line-wrap {
+  border-radius: 4px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.hex-cell__line-wrap--dongyao {
+  animation: dongyao-glow 0.8s ease-in-out infinite;
+  background: rgba(201, 168, 76, 0.15);
+  border-radius: 4px;
+}
+
+@keyframes dongyao-glow {
+  0%, 100% {
+    box-shadow: 0 0 2px rgba(201, 168, 76, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.7);
+  }
+}
+
 .hex-cell__name {
   font-size: 0.65rem;
   color: #aaa;
   margin-top: 4px;
   letter-spacing: 0.08em;
+  transition: color 0.5s;
+}
+
+.hex-cell--active .hex-cell__name {
+  color: #c9a84c;
 }

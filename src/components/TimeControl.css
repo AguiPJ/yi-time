@@ -1,0 +1,52 @@
+.time-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px 0;
+  flex-wrap: wrap;
+}
+
+.time-control__btn {
+  padding: 8px 20px;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  border-radius: 6px;
+  background: rgba(201, 168, 76, 0.1);
+  color: #c9a84c;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+  letter-spacing: 0.05em;
+}
+
+.time-control__btn:hover {
+  border-color: rgba(201, 168, 76, 0.8);
+  background: rgba(201, 168, 76, 0.2);
+}
+
+.time-control__picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.time-control__label {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.time-control__input {
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e0e0e0;
+  font-size: 0.85rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.time-control__input:focus {
+  border-color: rgba(201, 168, 76, 0.6);
+}
