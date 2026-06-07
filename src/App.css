@@ -35,9 +35,10 @@ body {
 /* ===== App 主体 ===== */
 
 .app {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 40px 20px 60px;
+  padding-right: 250px;
 }
 
 .app__header {

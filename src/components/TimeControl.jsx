@@ -21,7 +21,7 @@ export default function TimeControl({ onTimeChange, playing, onTogglePlay }) {
         const end = new Date(2100, 11, 31).getTime();
         const ts = start + Math.random() * (end - start);
         onTimeChange(new Date(ts), false);
-      }, 1500);
+      }, 10000);
     }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);

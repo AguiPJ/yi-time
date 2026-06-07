@@ -6,11 +6,29 @@
   background: rgba(201, 168, 76, 0.04);
   max-width: 720px;
   margin: 0 auto;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, transform 0.2s;
+}
+
+.active-hex:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  background: rgba(201, 168, 76, 0.08);
+  transform: scale(1.01);
+}
+
+.active-hex:active {
+  transform: scale(0.99);
 }
 
 .active-hex--empty {
   border-color: rgba(255, 255, 255, 0.05);
   background: transparent;
+  cursor: default;
+}
+
+.active-hex--empty:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.05);
 }
 
 .active-hex__waiting {
@@ -26,6 +44,7 @@
   justify-content: center;
   gap: 10px;
   margin-bottom: 14px;
+  flex-wrap: wrap;
 }
 
 .active-hex__timestamp {
@@ -44,12 +63,18 @@
   letter-spacing: 0.1em;
 }
 
+.active-hex__capture-hint {
+  font-size: 0.7rem;
+  color: #555;
+  letter-spacing: 0.08em;
+}
+
 /* --- 卦象行 --- */
 .active-hex__row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 12px;
 }
 
@@ -73,17 +98,9 @@
   letter-spacing: 0.1em;
 }
 
-.active-hex__gua--main .active-hex__gua-name {
-  color: #c9a84c;
-}
-
-.active-hex__gua--changed .active-hex__gua-name {
-  color: #cc6666;
-}
-
-.active-hex__gua--mutual .active-hex__gua-name {
-  color: #6699cc;
-}
+.active-hex__gua--main .active-hex__gua-name { color: #c9a84c; }
+.active-hex__gua--mutual .active-hex__gua-name { color: #6699cc; }
+.active-hex__gua--changed .active-hex__gua-name { color: #cc6666; }
 
 .active-hex__gua-trigram {
   font-size: 0.75rem;

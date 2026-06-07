@@ -100,24 +100,55 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* --- 激活本卦 --- */
-.hex-cell--active {
+/* --- 高亮本卦 (金色) --- */
+.hex-cell--ben {
   border-color: rgba(201, 168, 76, 0.6) !important;
   background: rgba(201, 168, 76, 0.08) !important;
-  box-shadow: 0 0 12px rgba(201, 168, 76, 0.15);
 }
 
-.hex-cell--pulse {
-  animation: hex-pulse 1.5s ease-in-out infinite;
+/* --- 高亮互卦 (蓝色) --- */
+.hex-cell--hu {
+  border-color: rgba(102, 153, 204, 0.6) !important;
+  background: rgba(102, 153, 204, 0.08) !important;
 }
 
-@keyframes hex-pulse {
-  0%, 100% {
-    box-shadow: 0 0 12px rgba(201, 168, 76, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 24px rgba(201, 168, 76, 0.35);
-  }
+/* --- 高亮变卦 (红色) --- */
+.hex-cell--bian {
+  border-color: rgba(204, 102, 102, 0.6) !important;
+  background: rgba(204, 102, 102, 0.08) !important;
+}
+
+.hex-cell--glow {
+  animation: hex-glow 2s ease-in-out infinite;
+}
+
+@keyframes hex-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 255, 255, 0.05); }
+  50% { box-shadow: 0 0 18px rgba(255, 255, 255, 0.12); }
+}
+
+.hex-cell--ben.hex-cell--glow {
+  animation-name: hex-glow-ben;
+}
+@keyframes hex-glow-ben {
+  0%, 100% { box-shadow: 0 0 8px rgba(201, 168, 76, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.45); }
+}
+
+.hex-cell--hu.hex-cell--glow {
+  animation-name: hex-glow-hu;
+}
+@keyframes hex-glow-hu {
+  0%, 100% { box-shadow: 0 0 8px rgba(102, 153, 204, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(102, 153, 204, 0.45); }
+}
+
+.hex-cell--bian.hex-cell--glow {
+  animation-name: hex-glow-bian;
+}
+@keyframes hex-glow-bian {
+  0%, 100% { box-shadow: 0 0 8px rgba(204, 102, 102, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(204, 102, 102, 0.45); }
 }
 
 .hex-cell__lines {
@@ -156,6 +187,55 @@
   transition: color 0.5s;
 }
 
-.hex-cell--active .hex-cell__name {
-  color: #c9a84c;
+.hex-cell--ben .hex-cell__name { color: #c9a84c; }
+.hex-cell--hu .hex-cell__name { color: #6699cc; }
+.hex-cell--bian .hex-cell__name { color: #cc6666; }
+
+/* --- 流程条 --- */
+.hex-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 12px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hex-flow__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hex-flow__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.hex-flow__item--ben .hex-flow__dot { background: #c9a84c; }
+.hex-flow__item--hu .hex-flow__dot { background: #6699cc; }
+.hex-flow__item--bian .hex-flow__dot { background: #cc6666; }
+
+.hex-flow__label {
+  font-size: 0.65rem;
+  color: #888;
+  white-space: nowrap;
+}
+
+.hex-flow__name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.hex-flow__item--ben .hex-flow__name { color: #c9a84c; }
+.hex-flow__item--hu .hex-flow__name { color: #6699cc; }
+.hex-flow__item--bian .hex-flow__name { color: #cc6666; }
+
+.hex-flow__arrow {
+  font-size: 1rem;
+  color: #555;
 }
