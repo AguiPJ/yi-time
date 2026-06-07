@@ -1,0 +1,103 @@
+/* ===== Layer 4: 六十四卦 (8×8 Grid) ===== */
+
+/* --- 列头行 --- */
+.hex-grid__header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hex-grid__corner {
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.hex-grid__col-label {
+  flex: 1;
+  min-width: 60px;
+  max-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 2px 8px;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+.hex-grid__col-symbol {
+  font-size: 1rem;
+}
+
+.hex-grid__col-name {
+  font-weight: 600;
+}
+
+.hex-grid__col-sub {
+  color: #666;
+  font-size: 0.55rem;
+}
+
+/* --- 每一行 --- */
+.hex-grid__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hex-grid__row-label {
+  width: 60px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 4px;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+.hex-grid__row-symbol {
+  font-size: 1rem;
+}
+
+.hex-grid__row-name {
+  font-weight: 600;
+}
+
+.hex-grid__row-sub {
+  color: #666;
+  font-size: 0.55rem;
+}
+
+/* --- 卦象单元格 --- */
+.hex-cell {
+  flex: 1;
+  min-width: 60px;
+  max-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 2px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.015);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.hex-cell:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.hex-cell__lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.hex-cell__name {
+  font-size: 0.65rem;
+  color: #aaa;
+  margin-top: 4px;
+  letter-spacing: 0.08em;
+}

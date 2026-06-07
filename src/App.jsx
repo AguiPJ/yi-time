@@ -1,11 +1,12 @@
 import Layer1Lines from './components/Layer1Lines';
 import Layer2FourImages from './components/Layer2FourImages';
 import Layer3EightTrigrams from './components/Layer3EightTrigrams';
+import Layer4SixtyFourHexagrams from './components/Layer4SixtyFourHexagrams';
 import './App.css';
 
 /**
  * App — 卦象时间墙主页面
- * 三层垂直排列：两爻 → 四象 → 八卦
+ * 四层垂直排列：两爻 → 四象 → 八卦 → 六十四卦
  */
 export default function App() {
   return (
@@ -20,9 +21,11 @@ export default function App() {
       <Layer2FourImages />
       <hr className="layer-divider" />
       <Layer3EightTrigrams />
+      <hr className="layer-divider" />
+      <Layer4SixtyFourHexagrams />
 
       <footer className="app__footer">
-        <p>道生一 · 一生二 · 二生三 · 三生万物</p>
+        <p>易有太极 · 是生两仪 · 两仪生四象 · 四象生八卦</p>
       </footer>
     </main>
   );
