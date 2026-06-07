@@ -1,4 +1,4 @@
-/* ===== SidePanel 右侧捕获面板 ===== */
+/* ===== SidePanel 捕获面板 ===== */
 
 .side-panel {
   position: fixed;
@@ -168,3 +168,29 @@
 .side-gua__tiyong-status--bad    { color: #c55; }
 .side-gua__tiyong-status--drain  { color: #ca5; }
 .side-gua__tiyong-status--neutral{ color: #888; }
+
+/* ===== 移动端：面板在底部 ===== */
+@media (max-width: 860px) {
+  .side-panel {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 24px;
+    padding: 20px 12px 24px;
+  }
+
+  .side-panel__inner {
+    animation: capture-in-mobile 0.45s ease-out;
+  }
+
+  @keyframes capture-in-mobile {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .side-gua__title { font-size: 0.78rem; }
+  .side-gua__tiyong-line { font-size: 0.7rem; }
+}

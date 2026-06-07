@@ -9,7 +9,7 @@
 }
 
 :root {
-  --bg-primary: #ddd;
+  --bg-primary: #0d0d0d;
   --bg-secondary: #141414;
   --text-primary: #e0e0e0;
   --text-secondary: #888;
@@ -37,25 +37,25 @@ body {
 .app {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 20px 60px;
-  padding-right: 270px;
+  padding: 24px 16px 40px;
+  padding-right: 280px;
 }
 
 .app__header {
   text-align: center;
-  padding: 20px 0 10px;
+  padding: 10px 0 6px;
 }
 
 .app__title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 300;
   letter-spacing: 0.3em;
   color: #c9a84c;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .app__subtitle {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   letter-spacing: 0.15em;
 }
@@ -63,16 +63,16 @@ body {
 /* ===== Layer 通用 ===== */
 
 .layer {
-  padding: 30px 0;
+  padding: 20px 0;
 }
 
 .layer__title {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--text-secondary);
   letter-spacing: 0.2em;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 /* ===== 分隔线 ===== */
@@ -84,12 +84,33 @@ body {
   margin: 0 auto;
 }
 
+/* ===== Layer 4 横向滚动 ===== */
+.layer-4-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ===== Footer ===== */
 
 .app__footer {
   text-align: center;
-  padding: 40px 0 20px;
+  padding: 30px 0 16px;
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.15em;
+}
+
+/* ===== 移动端 ===== */
+@media (max-width: 860px) {
+  html { font-size: 15px; }
+
+  .app {
+    padding: 16px 8px 20px;
+    padding-right: 8px;
+  }
+
+  .app__title { font-size: 1.3rem; }
+
+  .layer { padding: 14px 0; }
+  .layer__title { font-size: 0.9rem; }
 }
